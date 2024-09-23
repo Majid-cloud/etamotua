@@ -50,27 +50,23 @@ h1, h3, h4 {
     transform: translateY(-2px);
 }
 
-.response-container, .query-container {
+.test-module {
     background: #ffffff;
     border: 1px solid #e0e0e0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
 }
 
-.response-content, .query-content {
-    max-height: 300px; /* Limited height to prevent excessive scrolling */
+.response-content, .query-content, .api-content {
+    max-height: 300px;
     overflow-y: auto;
     white-space: pre-wrap;
     word-break: break-word;
-    padding: 10px; /* Padding for better readability */
+    padding: 10px;
 }
 
-.response-container pre, .query-container pre {
-    margin: 0;
-}
-
-.download-link, .download-query-link {
-    display: none; /* Initially hidden */
+.download-link, .download-query-link, .download-api-link {
+    display: none;
 }
 
 .btn-info, .btn-success {

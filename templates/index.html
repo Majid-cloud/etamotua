@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linux Command Generator and DB Query</title>
+    <title>Automate Test Case</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -24,78 +24,15 @@
     <div class="container mt-5">
         <h1 class="text-center mb-4">Automate Test Case</h1>
         
-        <!-- Command Generator Form -->
-        <form id="prompt-form" class="bg-light p-4 rounded shadow-lg form-container" method="POST" action="/generate">
-            <div class="form-group">
-                <label for="prompt">Enter your command:</label>
-                <input type="text" id="prompt" name="prompt" class="form-control input-shadow" placeholder="Enter a Linux command..." required>
-            </div>
-            <div class="form-group">
-                <label for="os">Select your OS:</label>
-                <select id="os" name="os" class="form-control input-shadow" required>
-                    <option value="debian">Debian</option>
-                    <option value="ubuntu">Ubuntu</option>
-                    <option value="centos">CentOS</option>
-                    <option value="rocky">Rocky-Linux</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary btn-animate">Generate Response</button>
-        </form>
-
-        <!-- Display the generated response for Command Generator -->
-        <div id="response-container" class="mt-4 p-4 rounded bg-white shadow-lg" style="display: none;">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="mb-0">Generated Response</h3>
-                <button class="btn btn-info btn-toggle" type="button" data-toggle="collapse" data-target="#responseContent" aria-expanded="false" aria-controls="responseContent">
-                    <i class="fas fa-chevron-down"></i> View Response
-                </button>
-            </div>
-            <div class="collapse" id="responseContent">
-                <div id="response-content" class="response-content mt-3">
-                    <!-- Response will be loaded here -->
-                </div>
-            </div>
-            <div class="d-flex justify-content-end mt-3">
-                <a class="download-link btn btn-success btn-animate" href="#" download>Download Output</a>
-            </div>
-        </div>
-
-        <!-- Button to Generate DB Query -->
-        <div class="mt-4 text-center">
-            <button id="generate-query-button" class="btn btn-secondary btn-toggle-query" type="button">
-                <i class="fas fa-plus"></i> Generate DB Query
+        <!-- Initial + button to add the first test case module -->
+        <div class="text-center mb-4">
+            <button id="add-test-case-btn" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus"></i> Automate Test Case
             </button>
         </div>
 
-        <!-- DB Query Generator Form (Initially hidden) -->
-        <div id="db-query-section" class="collapse mt-4 bg-light p-4 rounded shadow-lg">
-            <h3>Database Query Generator</h3>
-            <form id="query-form" class="query-form bg-light p-4 rounded shadow-lg form-container" method="POST" action="/generate_query">
-                <div class="form-group">
-                    <label for="query_prompt">Enter your DB query prompt:</label>
-                    <input type="text" id="query_prompt" name="query_prompt" class="form-control input-shadow" placeholder="Enter a DB query prompt..." required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-animate">Generate DB Query</button>
-            </form>
-
-            <!-- Display the generated DB query -->
-            <div class="query-container mt-4 p-4 rounded bg-white shadow-lg" style="display: none;">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0">Generated DB Query</h4>
-                    <button class="btn btn-info btn-toggle" type="button" data-toggle="collapse" data-target="#queryContent" aria-expanded="false" aria-controls="queryContent">
-                        <i class="fas fa-chevron-down"></i> View Query
-                    </button>
-                </div>
-                <div class="collapse" id="queryContent">
-                    <div id="query-content" class="query-content mt-3">
-                        <!-- DB Query will be loaded here -->
-                    </div>
-                </div>
-                <div class="d-flex justify-content-end mt-3">
-                    <a class="download-query-link btn btn-success btn-animate" href="#" download>Download DB Query</a>
-                </div>
-            </div>
-        </div>
+        <!-- This section will dynamically load the modules -->
+        <div id="test-case-container"></div>
     </div>
 </body>
 </html>
