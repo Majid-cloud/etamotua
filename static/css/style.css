@@ -19,6 +19,7 @@ h1, h3, h4 {
     background: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;  /* Add spacing between form and other sections */
 }
 
 .form-container:hover {
@@ -43,6 +44,7 @@ h1, h3, h4 {
     padding: 10px 20px;
     font-size: 16px;
     transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
 }
 
 .btn-animate:hover {
@@ -55,6 +57,7 @@ h1, h3, h4 {
     border: 1px solid #e0e0e0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
+    margin-bottom: 40px;  /* Spacing between test modules */
 }
 
 .response-content, .query-content, .api-content {
@@ -82,4 +85,18 @@ h1, h3, h4 {
 .btn-success:hover {
     background-color: #28a745;
     color: #fff;
+}
+.spinner-border {
+    display: inline-block;
+    margin-top: 10px;
+}
+/* copy to clipboard */
+.fas.fa-copy {
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.fas.fa-copy:hover {
+    color: #0056b3;
 }

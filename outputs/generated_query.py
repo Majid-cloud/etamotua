@@ -1,36 +1,25 @@
-```python
-import mysql.connector
+```python3  
+    from google.cloud import bigquery
 
-# Create a connection to the database
-connection = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="mydatabase"
-)
+    # Construct a BigQuery client object.
+    client = bigquery.Client()
 
-# Create a cursor to execute queries
-cursor = connection.cursor()
+    query = """
+        SELECT
+            cdr.patient_id,
+            cdr.device_id,
+            cdr.measurement_date,
+            cdr.measurement_type,
+            cdr.measurement_value,
+            cdr.measurement_unit,
+            cdr.source_name,
+            cdr.source_version
+        FROM
+            `bigquery-public-data.google_health_dataset.cdr` AS cdr
+    """
+    query_job = client.query(query)  # Make an API request.
 
-# Prepare a query to insert a record into the 'users' table
-query = """
-    INSERT INTO users (name, email, password)
-    VALUES (%s, %s, %s)
-"""
-
-# Assign values to the query parameters
-name = "John Doe"
-email = "john.doe@example.com"
-password = "password"
-
-# Execute the query
-cursor.execute(query, (name, email, password))
-
-# Commit the changes to the database
-connection.commit()
-
-# Close the cursor and connection
-cursor.close()
-connection.close()
+    df = query_job.to_dataframe()
+    df.head()  
 ```
 

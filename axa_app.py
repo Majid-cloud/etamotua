@@ -16,7 +16,7 @@ def generate():
     os_choice = request.form.get('os')
     print("@@@@@@@@@@@@@@@@@@@",os_choice)
     response = insert_sgemini_prompt(prompt, os_choice)
-
+    print(response,"\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@WWww")
     output_filename = 'outputs/generated_script.py'
     with open(output_filename, 'w') as f:
         f.write(response)
@@ -40,7 +40,7 @@ def generate_query():
         f.write(resp)
 
     return jsonify({
-        'db_query': resp,
+        'response': resp,
         'download_url': '/download_query'
     })
 
